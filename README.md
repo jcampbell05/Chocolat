@@ -1,5 +1,7 @@
 # Chocolat
 
+![Poster image from the movie 'Chocolat'](poster.png)
+
 Generate podspecs from Swift packages.
 
 ## Usage
