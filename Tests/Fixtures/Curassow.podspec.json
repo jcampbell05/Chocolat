@@ -1,0 +1,26 @@
+{
+  "authors" : {
+    "Boris Bügling" : "boris@icculus.org"
+  },
+  "dependencies" : {
+    "Inquiline" : [
+      "> 0.2.0",
+      "< 1.0.0"
+    ],
+    "Commander" : [
+      "> 0.3.0",
+      "< 1.0.0"
+    ],
+    "Nest" : [
+      "> 0.2.0",
+      "< 1.0.0"
+    ]
+  },
+  "version" : "0.0.1",
+  "license" : "MIT",
+  "platforms" : {
+    "osx" : "10.10"
+  },
+  "source_files" : "Sources",
+  "name" : "Curassow"
+}
