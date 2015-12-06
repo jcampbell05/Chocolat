@@ -1,0 +1,6 @@
+[submodule "Spectre"]
+	path = Spectre
+	url = https://github.com/kylef/Spectre
+[submodule "Tests/Fixtures/Chores"]
+	path = Tests/Fixtures/Chores
+	url = https://github.com/neonichu/Chores
