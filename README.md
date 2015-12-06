@@ -17,7 +17,14 @@ improve the generated output. The required `summary` attribute is not filled.
 ## Installation
 
 Chocolat requires Swift 2.2, as it uses the [Swift Package Manager][1] to parse
-the `Package.swift` files.
+the `Package.swift` files and is itself build by SPM. You can compile it by just
+running:
+
+```bash
+$ make
+```
+
+By default, the CLI tool will be located in `.build/debug/chocolat-cli`.
 
 ## Unit Tests
 
