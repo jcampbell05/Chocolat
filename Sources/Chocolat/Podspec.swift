@@ -25,7 +25,7 @@ public func podspecWith(package: Package) throws -> String? {
   for dependency in package.dependencies {
     if let name = NSURL(string: dependency.url)?.URLByDeletingPathExtension?.lastPathComponent {
       deps[name] = [
-        "> \(dependency.versionRange.startIndex)", 
+        ">= \(dependency.versionRange.startIndex)",
         "< \(dependency.versionRange.endIndex)"
       ]
     } 
