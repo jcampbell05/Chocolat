@@ -15,7 +15,7 @@ public func github_data_from_remote(remote: String) -> (String, String)? {
   return nil
 }
 
-public func github_data_from_git() -> (String, String)? {
+func github_data_from_git() -> (String, String)? {
   if let remote = runcmd(["git", "remote", "-v"])?.first, data = github_data_from_remote(remote) {
     return data
   }
@@ -23,6 +23,7 @@ public func github_data_from_git() -> (String, String)? {
   return nil
 }
 
+// FIXME: Should have internal visibility
 public func git_author() -> (String, String)? {
   if let config = runcmd(["git", "config", "-l"]) {
     var author: String?
@@ -49,6 +50,6 @@ public func git_author() -> (String, String)? {
   return nil
 }
 
-public func git_version() -> String {
+func git_version() -> String {
   return runcmd(["git", "tag", "--list"])?.last ?? "0.0.1"
 }
