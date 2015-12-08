@@ -4,6 +4,8 @@
 
 Generate podspecs from Swift packages.
 
+Looking for the reverse conversion? => [Schoutedenapus][2]
+
 ## Usage
 
 ```bash
@@ -35,3 +37,4 @@ $ make test
 ```
 
 [1]: https://swift.org/package-manager/
+[2]: https://github.com/neonichu/schoutedenapus
