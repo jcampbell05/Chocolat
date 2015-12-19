@@ -36,4 +36,10 @@ describe("GitHub handling") {
     try expect(info?.0) == "Boris Bügling"
     try expect(info?.1) == "boris@icculus.org"
   }
+
+  $0.it("can get GitHub license information") {
+    let license = try github_license(owner: "neonichu", repo: "chocolat")
+
+    try expect(license) == "mit"
+  }
 }

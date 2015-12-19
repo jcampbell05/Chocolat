@@ -23,6 +23,30 @@ func github_data_from_git() -> (String, String)? {
   return nil
 }
 
+// TODO: Should use Requests once it supports HTTPS
+struct Response {
+  let body: String?
+}
+
+private func get(url: String) throws -> Response {
+  let request = NSURLRequest(URL: NSURL(string: url)!)
+  var response: NSURLResponse?
+  let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+  let body = NSString(data: data, encoding: NSUTF8StringEncoding)! as String
+  return Response(body: body)
+}
+
+public func github_license(owner owner: String, repo: String) throws -> String? {
+  let response = try get("https://api.github.com/repos/\(owner)/\(repo)/license")
+
+  if let data = response.body?.dataUsingEncoding(NSUTF8StringEncoding),
+         json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary {
+    return (json["license"] as? NSDictionary)?["key"] as? String
+  }
+
+  return nil
+}
+
 // FIXME: Should have internal visibility
 public func git_author() -> (String, String)? {
   if let config = runcmd(["git", "config", "-l"]) {

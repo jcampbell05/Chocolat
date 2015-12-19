@@ -7,7 +7,6 @@ public func podspecWith(package: Package) throws -> String? {
   spec["version"] = git_version()
   spec["source_files"] = "Sources"
   spec["platforms"] = [ "osx": "10.10" ]
-  spec["license"] = "MIT"
   // TODO: Extract summary via GH API
 
   if let git_author = git_author() {
@@ -18,6 +17,7 @@ public func podspecWith(package: Package) throws -> String? {
     let page = "https://github.com/\(github_data.0)/\(github_data.1)"
     spec["homepage"] = page
     spec["source"] = [ "git": "\(page).git", "tag": spec["version"] as! String ]
+    spec["license"] = try github_license(owner: github_data.0, repo: github_data.1)
   }
 
   var deps = [String: Array<String>]()
