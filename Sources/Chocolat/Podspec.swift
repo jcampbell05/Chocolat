@@ -5,7 +5,7 @@ public func podspecWith(package: Package) throws -> String? {
   var spec = [String:AnyObject]()
   spec["name"] = package.name
   spec["version"] = git_version()
-  spec["source_files"] = "Sources"
+  spec["source_files"] = "Sources/**/*.swift"
   spec["platforms"] = [ "osx": "10.10" ]
   // TODO: Extract summary via GH API
 
